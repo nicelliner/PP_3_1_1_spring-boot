@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <br>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.name}">..</td>
+            <td>
+                <a th:href="@{/{id}(id=${user.getId()})}" th:text="Show">user</a>
+            </td>
+            <br>
+        </tr>
+    </table>
+    <br>
+    <input th:type="button" th:value="Add"
+           onclick="window.location.href = 'add'">
+</body>
+</html>
